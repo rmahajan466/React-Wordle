@@ -1,0 +1,220 @@
+/* General Styles */
+body {
+  font-family: "Bangers", "Comic Sans MS", sans-serif;
+  background-color: #fdf0d5; /* Light comic-book page color */
+  color: #333;
+  margin: 0;
+  padding: 0;
+  height: 100vh;
+  overflow: none;
+}
+
+.app {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.game-area {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  flex-direction: column;
+  max-width: 400px;
+  height: auto;
+  width: 90%;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+  background-color: #f7deab;
+  border: 5px solid #333;
+  border-radius: 15px;
+  margin: 12px;
+}
+
+/* Header */
+h1 {
+  font-size: 42px;
+  font-weight: bold;
+  color: #333;
+  text-shadow: 2px 2px #fff, -2px -2px #000;
+  margin-bottom: 10px;
+}
+
+/* Board Styles */
+.board {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.row {
+  display: flex;
+  justify-content: center;
+  gap: 5px;
+}
+
+.row.current {
+  animation: wiggle 0.5s infinite alternate; /* Fun wiggle animation */
+}
+
+@keyframes wiggle {
+  0% {
+    transform: rotate(-2deg);
+  }
+  100% {
+    transform: rotate(2deg);
+  }
+}
+
+/* Tile Styles */
+.tile {
+  width: 50px;
+  height: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 28px;
+  font-weight: bold;
+  text-transform: uppercase;
+  background-color: #fefcbd;
+  color: #000;
+  border: 4px solid #000; /* Comic-style border */
+  box-shadow: 4px 4px 0 #333; /* Comic-style shadow */
+  transition: transform 0.2s, background-color 0.3s;
+}
+
+.tile.correct {
+  background-color: #86c232;
+  border-color: #5a9216;
+}
+
+.tile.present {
+  background-color: #f9c74f;
+  border-color: #dda833;
+}
+
+.tile.absent {
+  background-color: #d62828;
+  border-color: #9b1d1d;
+}
+
+/* Keyboard Styles */
+.keyboard {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.keyboard-row {
+  display: flex;
+  justify-content: center;
+  gap: 5px;
+}
+
+.key {
+  padding: 12px 16px;
+  background-color: #fefcbd;
+  color: #333;
+  font-size: 18px;
+  font-weight: bold;
+  border: 3px solid #000;
+  border-radius: 6px;
+  cursor: pointer;
+  box-shadow: 4px 4px 0 #333;
+  text-transform: uppercase;
+  transition: background-color 0.2s, transform 0.1s;
+}
+
+.key:hover {
+  background-color: #ffdd57;
+}
+
+.key:active {
+  transform: translateY(2px);
+  box-shadow: 2px 2px 0 #333;
+}
+
+.key.special-key {
+  background-color: #ffdd57;
+}
+
+/* Message Styles */
+.message {
+  font-size: 20px;
+  color: #333;
+  margin-top: 10px;
+  padding: 10px;
+  background: #fff;
+  border: 4px solid #000;
+  border-radius: 10px;
+  display: inline-block;
+  box-shadow: 5px 5px 0 #333;
+  transform: rotate(-2deg); /* Speech bubble effect */
+}
+
+.hint {
+  font-size: 18px;
+  color: #333;
+  background-color: #fffbcc;
+  border: 2px solid #000;
+  border-radius: 10px;
+  padding: 10px;
+  margin-bottom: 20px;
+  box-shadow: 4px 4px 0 #333;
+  max-width: 90%;
+  text-align: center;
+}
+
+.popup-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.popup {
+  background-color: #fff;
+  color: #333;
+  border: 3px solid #000;
+  border-radius: 10px;
+  padding: 20px;
+  text-align: center;
+  box-shadow: 4px 4px 0 #333;
+  max-width: 300px;
+}
+
+.popup-message {
+  font-size: 18px;
+  margin-bottom: 15px;
+}
+
+.popup-button {
+  background-color: #86c232;
+  color: #fff;
+  font-size: 16px;
+  font-weight: bold;
+  border: 2px solid #000;
+  border-radius: 5px;
+  padding: 10px 20px;
+  cursor: pointer;
+  text-transform: uppercase;
+  box-shadow: 3px 3px 0 #333;
+}
+
+.popup-button:hover {
+  background-color: #5a9216;
+}
+
+@media only screen and (max-width: 600px) {
+  .keyboard {
+    display: none;
+  }
+}
